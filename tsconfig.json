@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    // "isolatedModules": true, // TODO: @Tim 테스트 파일은 export 할게 없어서 이게 true 이면 TS 오류입니다.
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@libs/*": ["app/libs/*"],
+      "@components": ["app/components"],
+      "@containers": ["app/containers"],
+      "@screens": ["app/screens"],
+      "@routes": ["app/routes"],
+      "@models": ["app/models"],
+      "@configs": ["app/configs"],
+      "@repositories": ["app/repositories"],
+      "@services": ["app/services"],
+    },
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+}
