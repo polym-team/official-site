@@ -1,0 +1,35 @@
+name: Publish pages
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install, build
+        run: |
+          npm ci
+          npm run build
+        env:
+          CI: true
+      - name: publish
+        run: |
+          cd dist
+          git init
+          git remote add origin ${{ secrets.PUBLISH_REPO }}
+          git push origin master
+        env:
+          CI: true
