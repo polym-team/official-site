@@ -25,11 +25,13 @@ jobs:
           npm run build
         env:
           CI: true
-      - name: publish
+      - name: Commit files
         run: |
-          cd dist
-          git init
-          git remote add origin ${{ secrets.PUBLISH_REPO }}
-          git push origin master
-        env:
-          CI: true
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add changes" -a
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          github_token: ${{ PUBLISH_ACCESS_TOKEN }}
+          repository: ${{ PUBLISH_REPO }}
