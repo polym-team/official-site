@@ -33,5 +33,5 @@ jobs:
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.5.0
         with:
-          github_token: ${{ PUBLISH_ACCESS_TOKEN }}
-          repository: ${{ PUBLISH_REPO }}
+          github_token: ${{ secrets.PUBLISH_ACCESS_TOKEN }}
+          repository: ${{ secrets.PUBLISH_REPO }}
