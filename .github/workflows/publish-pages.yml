@@ -3,7 +3,7 @@ name: Publish pages
 on:
   push:
     branches:
-      - '*'
+      - master
 
 jobs:
   build:
@@ -15,6 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -23,13 +25,12 @@ jobs:
         run: |
           npm ci
           npm run build
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Add changes" -a
         env:
           CI: true
-      - name: GitHub Push
-        uses: ad-m/github-push-action@v0.5.0
-        with:
-          github_token: ${{ secrets.PUBLISH_ACCESS_TOKEN }}
-          repository: ${{ secrets.PUBLISH_REPO }}
+      - name: My food
+        uses: selenehyun/gh-push@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_ACCESS_TOKEN }}
+          COMMIT_FILES: ./dist
+          REPO_FULLNAME: polym-team/polym-team.github.io
+          BRANCH: master
