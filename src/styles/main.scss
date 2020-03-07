@@ -3,4 +3,5 @@ body,
 body > div:first-child {
   min-width: 1024px;
   height: 100vh;
+  overflow-x: hidden;
 }

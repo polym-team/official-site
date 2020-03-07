@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     motifSymbol: {
       position: 'absolute',
-      top: -1724.6,
-      left: 'calc(25% - 570px)',
+      top: -1834,
+      left: 'calc(25% - 320px)',
       width: 1603,
       height: 2575,
       transform: 'matrix(1.8, -0.91, 0.91, 0.42, 0, 0)',
-      background: '#00142C 0% 0% no-repeat padding-box',
+      background: `${theme.palette.secondary.main} 0% 0% no-repeat padding-box`,
       borderRadius: 40,
       zIndex: -1,
       pointerEvents: 'none',
@@ -41,9 +41,12 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     mainTypo: {
-      marginTop: 246,
+      marginTop: theme.spacing(18),
       fontWeight: 'bold',
       letterSpacing: -0.86,
+      '& > p': {
+        margin: theme.spacing(4, 0),
+      },
     },
   }),
 );
@@ -76,10 +79,15 @@ export const LandingScreen = () => {
       </AppBar>
       <Container fixed>
         <Toolbar />
-        <Typography variant="h2" color="inherit" className={classes.mainTypo}>
+        <Typography variant="h3" color="inherit" className={classes.mainTypo}>
           웹으로 시작하는 새로운 비즈니스.
           <br />
           당신의 업무를 보다 더 아름답게.
+          <Typography variant="caption" color="inherit" component="p">
+            우리는 당신의 작업에 활력을 더합니다. 웹 기술을 통해 더 편하고 쾌적한 환경에서
+            <br />
+            당신의 목표로 더 쉽게 다가설 수 있습니다.
+          </Typography>
         </Typography>
       </Container>
     </div>
