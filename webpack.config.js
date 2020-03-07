@@ -69,6 +69,7 @@ module.exports = (env, argv) => ({
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      favicon: 'src/favicon.ico',
       templateParameters: {
         isStaging: true,
       },
@@ -76,6 +77,18 @@ module.exports = (env, argv) => ({
         collapseWhitespace: true,
         processConditionalComments: true,
         minifyJS: argv.mode === 'production',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/404.html',
+      filename: '404.html',
+      favicon: 'src/favicon.ico',
+      templateParameters: {
+        isStaging: true,
+      },
+      minify: {
+        collapseWhitespace: true,
+        processConditionalComments: true,
       },
     }),
     new MiniCssExtractPlugin({
