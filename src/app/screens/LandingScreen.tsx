@@ -1,11 +1,9 @@
 import React from 'react';
 import { Theme, makeStyles, createStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import logoUrl from '@assets/logos/white.svg';
+import { LayoutHeader } from '@components';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,22 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
       zIndex: -1,
       pointerEvents: 'none',
     },
-    header: {
-      padding: 0,
-    },
-    title: {
-      flexGrow: 1,
-    },
-    menu: {
-      '& > li': {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        marginLeft: theme.spacing(1),
-      },
-      '& > li:not(:last-child)': {
-        marginRight: theme.spacing(1),
-      },
-    },
     mainTypo: {
       marginTop: theme.spacing(18),
       fontWeight: 'bold',
@@ -57,26 +39,7 @@ export const LandingScreen = () => {
   return (
     <div className={classes.root}>
       <div className={classes.motifSymbol} />
-      <AppBar>
-        <Container fixed>
-          <Toolbar className={classes.header}>
-            <div className={classes.title}>
-              <img src={logoUrl} width="200" alt="폴리모프" />
-            </div>
-            <ul className={classes.menu}>
-              <Button component="li" color="inherit">
-                폴리모프 소개
-              </Button>
-              <Button component="li" color="inherit">
-                우리가 한 일
-              </Button>
-              <Button component="li" color="inherit">
-                문의하기
-              </Button>
-            </ul>
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <LayoutHeader />
       <Container fixed>
         <Toolbar />
         <Typography variant="h3" color="inherit" className={classes.mainTypo}>
