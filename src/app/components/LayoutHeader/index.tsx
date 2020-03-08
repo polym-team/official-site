@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
       position: 'relative',
+      display: 'flex',
       '& > img:not(:first-child)': {
         position: 'absolute',
         left: 0,
@@ -54,8 +55,8 @@ const ScrollAppBarHandler: FC<{ children: ReactElement }> = ({ children }) => {
       transition: theme.transitions.create(['background-color', 'color'], {
         duration: theme.transitions.duration.complex,
       }),
-      backgroundColor: trigger ? 'white' : undefined,
-      color: trigger ? 'black' : undefined,
+      backgroundColor: trigger ? theme.palette.background.paper : 'transparent',
+      color: trigger ? theme.palette.text.primary : theme.palette.secondary.contrastText,
     },
   });
 };

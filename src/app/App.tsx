@@ -26,9 +26,10 @@ export const appTheme = createMuiTheme({
       root: {
         boxShadow: 'none',
       },
-      colorPrimary: {
-        backgroundColor: 'transparent',
-        color: 'white',
+    },
+    MuiGridListTile: {
+      tile: {
+        overflow: 'visible',
       },
     },
   },
