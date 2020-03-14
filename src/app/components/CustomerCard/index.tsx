@@ -11,13 +11,18 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '1px solid #dddddd',
       borderRadius: theme.shape.borderRadius * 0.4,
       boxShadow: theme.shadows[0],
-      display: 'flex',
-      justifyContent: 'center',
       position: 'relative',
     },
     logo: {
       maxWidth: 190,
       maxHeight: 55,
+      width: '100%',
+    },
+    borderContainer: {
+      height: 55,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     dimm: {
       opacity: 0,
@@ -54,11 +59,13 @@ export const CustomerCard: FC<PropTypes> = ({ logoUrl, caption }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <img className={classes.logo} src={logoUrl} alt={caption} />
-      <Typography className={classes.dimm} variant="subtitle2">
-        <CloudDownloadIcon />
-        {caption}
-      </Typography>
+      <div className={classes.borderContainer}>
+        <img className={classes.logo} src={logoUrl} alt={caption} />
+        <Typography className={classes.dimm} variant="subtitle2">
+          <CloudDownloadIcon />
+          {caption}
+        </Typography>
+      </div>
     </Card>
   );
 };
