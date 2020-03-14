@@ -68,7 +68,7 @@ export const LayoutHeader = () => {
   return (
     <ScrollAppBarHandler>
       <AppBar>
-        <Container fixed>
+        <Container maxWidth="lg">
           <Toolbar className={classes.header}>
             <div className={classes.title}>
               <Fade in={!trigger}>

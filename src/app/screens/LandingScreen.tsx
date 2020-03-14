@@ -1,6 +1,6 @@
 import React from 'react';
 import { Theme, makeStyles, createStyles } from '@material-ui/core/styles';
-import { LayoutHeader, IntroView, TechSkillView, Footer } from '@components';
+import { LayoutHeader, IntroView, TechSkillView, Footer, CustomerView } from '@components';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,6 +32,8 @@ export const LandingScreen = () => {
       <div className={classes.motifSymbol} />
       <IntroView />
       <TechSkillView />
+      <CustomerView />
+      <div></div>
       <Footer />
     </div>
   );

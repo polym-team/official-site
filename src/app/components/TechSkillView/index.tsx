@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const TechSkillView = () => {
   const classes = useStyles();
   return (
-    <Container fixed className={classes.sectionContainer}>
+    <Container maxWidth="lg" className={classes.sectionContainer}>
       <Typography variant="h3" color="inherit" className={classes.title}>
         우리는 웹 기술로 멋진 것들을 만듭니다.
       </Typography>

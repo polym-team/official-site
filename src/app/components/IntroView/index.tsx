@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       letterSpacing: -0.86,
       '& > p': {
         margin: theme.spacing(4, 0),
+        fontSize: '0.35em',
       },
     },
   }),
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const IntroView = () => {
   const classes = useStyles();
   return (
-    <Container fixed className={classes.sectionContainer}>
+    <Container maxWidth="lg" className={classes.sectionContainer}>
       <Toolbar />
       <Typography variant="h3" color="inherit" className={classes.mainTypo}>
         웹으로 시작하는 새로운 비즈니스.

@@ -11,7 +11,11 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '1px solid #dddddd',
       borderRadius: theme.shape.borderRadius,
       boxShadow: theme.shadows[0],
+      transition: theme.transitions.create(['transform', 'box-shadow'], {
+        duration: theme.transitions.duration.standard,
+      }),
       '&:hover': {
+        transform: 'scale(1.02) translate(-1px, -3px)',
         boxShadow: theme.shadows[1],
       },
     },
